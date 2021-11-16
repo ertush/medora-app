@@ -61,22 +61,16 @@
       }
 
       @layer components{
-        /* Nav Styles */
-         /* hover for link-menu color can be bg-secondary or bg-gray-400  */
-        .link-menu {
-            @apply 
-            capitalize
-            text-8xl
-            text-dark-green
-            font-normal
-            hover:scale-110
-            transform
-            transition
-            duration-200
-            ease-out
-            md:border-b-2 border-gray-400 hover:border-none  
+
+        .center-content{
+          @apply
+          justify-center 
+          items-center
         }
 
+  
+        }
+       
         /*  */
 
       }
@@ -93,7 +87,7 @@
       }
    
 
-}
+
 
 
 
