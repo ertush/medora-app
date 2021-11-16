@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+
+
+@layer base{
+     
+       
+    @font-face {
+        font-family: Inter;
+        font-weight: 100;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-200.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 200;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-200.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 300;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-300.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 400;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-regular.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 500;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-500.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 600;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-600.woff) format("woff");
+      }
+
+      
+      @font-face {
+        font-family: Inter;
+        font-weight: 700;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-700.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 800;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-800.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: Inter;
+        font-weight: 900;
+        src: url(../assets/fonts/inter-v3-latin/inter-v3-latin-900.woff) format("woff");
+      }
+
+      @layer components{
+        /* Nav Styles */
+         /* hover for link-menu color can be bg-secondary or bg-gray-400  */
+        .link-menu {
+            @apply 
+            capitalize
+            text-8xl
+            text-dark-green
+            font-normal
+            hover:scale-110
+            transform
+            transition
+            duration-200
+            ease-out
+            md:border-b-2 border-gray-400 hover:border-none  
+        }
+
+        /*  */
+
+      }
+
+      :root{  
+          font-family: 'Inter';
+          @apply 
+          box-border
+          h-auto
+          bg-white
+          m-0
+          p-0
+
+      }
+   
+
+}
+
+
+
+
+
+
