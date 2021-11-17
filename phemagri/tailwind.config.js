@@ -11,6 +11,10 @@ module.exports = {
         "darker-green": "#1f4e3d",
         "dark-maroon":"#813d3b",
       },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+       }
+
     },
   },
   variants: {
