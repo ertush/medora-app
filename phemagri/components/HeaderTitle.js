@@ -5,10 +5,10 @@ function HeaderTitle() {
           {" "}
           Take Control of your produce today
         </p>
-        <p className="w-[70%] mt-2 font-semibold text-darker-green bg-light-yellow">
+        <p className=" w-[80%] md:w-[55%] mt-2 font-semibold text-darker-green bg-light-yellow">
           A platform for everyone, Farmers
         </p>
-        <p className="w-[50%] mt-2 font-semibold text-darker-green bg-light-yellow">
+        <p className="w-[60%] md:w-[40%] mt-2 font-semibold text-darker-green bg-light-yellow">
           Investors, Vendors etc{" "}
         </p>
       </div>

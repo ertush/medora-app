@@ -18,9 +18,7 @@ function VendorDashboard() {
           className="
         w-full
         flex
-        justify-between <ChartCard 
-                    renderItem={() => <Pie data={pieChartData} title={'crop coverage by acerage'} />} 
-                />
+        justify-between 
         items-center
         p-4
         bg-gray-100 
@@ -95,7 +93,9 @@ function VendorDashboard() {
                         <FaMoneyBillAlt  className="text-gray-100 w-6 h-6"/>
                     )}
                 
-                  />
+                  >
+                  
+                  </DataCard>
                 )}
               />
 
@@ -141,9 +141,11 @@ function VendorDashboard() {
                     description={"Pending transactions"}
                     renderIcon={() => (
                         <FaMoneyBillAlt  className="text-gray-100 w-6 h-6"/>
-                    )}
+                    )}>
+                    
+                    </DataCard>
                 
-                  />
+                  
                 )}
               />
 

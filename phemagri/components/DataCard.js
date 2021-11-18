@@ -1,6 +1,6 @@
 import {FaArrowDown ,FaArrowUp} from 'react-icons/fa'
 
-function DataCard({cost, description, state, delta, renderIcon}) {
+function DataCard({cost, description, state, delta, renderIcon, children}) {
     return (
         <div className="flex-col center-content space-y-2 p-4">
                         <div className="flex space-x-2 justify-center">
@@ -15,7 +15,7 @@ function DataCard({cost, description, state, delta, renderIcon}) {
                         
                         </div>
                         <p className="text-base font-thin pt-2 text-center text-dark-maroon">{description}</p>
-
+                        {children}
         </div>
     )
 }

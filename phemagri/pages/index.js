@@ -9,11 +9,11 @@ export default function Home() {
         <title>Phem-agri</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* Heading */}
-      <Header />
+     
       {/* Body */}
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-    
+      <main className="w-full flex-1">
+         {/* Heading */}
+         <Header />
       </main>
       {/* Footer */}
 
