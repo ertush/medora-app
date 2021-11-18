@@ -82,7 +82,7 @@ function Header() {
 
           {/* Logo */}
           <p className="font-bold text-light-yellow text-lg">
-            Phem<span className="text-dark-maroon">-</span>
+            Phema<span className="text-dark-maroon">-</span>
             <span className="text-dark-green">Agri</span>
           </p>
 
