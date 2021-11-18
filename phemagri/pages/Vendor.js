@@ -10,7 +10,7 @@ import DataCard from '../components/DataCard'
 
 function Vendor() {
 
-    const [user, setUser] = useState('Martin')
+    const [user, setUser] = useState('User')
     return (
         <div>
          {/* Menu Bar */}

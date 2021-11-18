@@ -11,7 +11,7 @@ import {lineChartData,lineChartOptions, multiAxisOptions, multiAxisData} from '.
 
 function InputProvider() {
 
-    const [user, setUser] = useState('Martin')
+    const [user, setUser] = useState('User')
 
     return (
         <div>

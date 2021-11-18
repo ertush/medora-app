@@ -1,6 +1,6 @@
 import {useState, createContext} from 'react'
 import { HiMenu} from 'react-icons/hi'
-import { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7 } from './blobs'
+import { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7 } from './Blobs'
 import HeaderTitle from './HeaderTitle'
 import renderSideMenu from './renderSideMenu'
 import SignInForm from './SignInForm'

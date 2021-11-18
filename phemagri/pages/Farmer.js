@@ -11,7 +11,7 @@ function Farmer() {
 
 
     
-    const [user, setUser] = useState('Martin')
+    const [user, setUser] = useState('User')
     const [selected, setSelected] = useState(2)
 
     const handleSelect = (e) => {

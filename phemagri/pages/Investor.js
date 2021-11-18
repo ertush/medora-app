@@ -9,7 +9,7 @@ import ChartCard from '../components/ChartCard'
 import DataCard from '../components/DataCard'
 
 function Investor() {
-    const [user, setUser] = useState('Martin')
+    const [user, setUser] = useState('User')
 
     return (
       <div>
