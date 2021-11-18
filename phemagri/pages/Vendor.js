@@ -1,6 +1,6 @@
 
 import {useState} from 'react'
-import {HiBell} from 'react-icons/hi'
+import {HiBell, HiLogout} from 'react-icons/hi'
 import { FaFileWord, FaMoneyBillAlt, FaStore, FaSwatchbook, FaUser } from 'react-icons/fa'
 import { FaTachometerAlt} from 'react-icons/fa' 
 import {multiTypeData, stackedBarData, stackedBarOptions} from '../shared/DummyData'

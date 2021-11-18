@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import Header from '../components/Header'
-
+import Head from "next/head";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -9,17 +8,12 @@ export default function Home() {
         <title>Phem-agri</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-     
+
       {/* Body */}
       <main className="w-full flex-1">
-         {/* Heading */}
-         <Header />
+        {/* Heading */}
+        <Header />
       </main>
-      {/* Footer */}
-
-      {/* <footer className="flex items-center justify-center w-full h-40 bg-dark-green">
-       
-      </footer> */}
     </div>
-  )
+  );
 }

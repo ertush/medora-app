@@ -2,7 +2,6 @@
 
 import {useState} from 'react'
 import { FaFileExcel,  FaUser, FaTachometerAlt, FaStore } from 'react-icons/fa'
-import { NextRouter } from 'next/dist/client/router'
 import ChartCard from '../components/ChartCard'
 import DataCard from '../components/DataCard'
 import { HiUserGroup, HiBell, HiLogout } from 'react-icons/hi'

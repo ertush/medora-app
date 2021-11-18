@@ -1,5 +1,6 @@
 import {HiBell} from 'react-icons/hi'
 import {useState} from 'react'
+import {HiLogout} from 'react-icons/hi'
 import ChartCard from '../components/ChartCard'
 import {FaUser, FaTachometerAlt, FaCog, FaLeaf} from 'react-icons/fa'
 import { barChartData, barChartOptions,groupedBarOptions, groupedBarData } from '../shared/DummyData'
