@@ -1,31 +1,24 @@
-import {HiBell} from 'react-icons/hi'
-import {useState} from 'react'
-import ChartCard from '../components/ChartCard'
-import {FaUser, FaTachometerAlt, FaCog, FaLeaf} from 'react-icons/fa'
-import { barChartData, barChartOptions,groupedBarOptions, groupedBarData } from '../shared/DummyData'
 
-import { Bar, } from 'react-chartjs-2';
+import {useState} from 'react'
+import {HiBell} from 'react-icons/hi'
+import { FaFileWord, FaMoneyBillAlt, FaStore, FaSwatchbook, FaUser } from 'react-icons/fa'
+import { FaTachometerAlt} from 'react-icons/fa' 
+import {multiTypeData, stackedBarData, stackedBarOptions} from '../shared/DummyData'
+import { Bar } from 'react-chartjs-2'
+import ChartCard from '../components/ChartCard'
 import DataCard from '../components/DataCard'
 
-function FarmerDashboard() {
+function Vendor() {
 
-
-    
     const [user, setUser] = useState('Martin')
-    const [selected, setSelected] = useState(2)
-
-    const handleSelect = (e) => {
-        setSelected(e.selected)
-      }
-
     return (
-      <div>
-        {/* Menu Bar */}
-        <div
+        <div>
+         {/* Menu Bar */}
+         <div
           className="
         w-full
         flex
-        justify-between
+        justify-between 
         items-center
         p-4
         bg-gray-100 
@@ -42,104 +35,73 @@ function FarmerDashboard() {
 
           <div className="flex space-x-3 items-center">
             {/* Avatar */}
-            <div>
-            <span onClick={() => {}} className="w-8 h-8 rounded-full flex center-content bg-dark-maroon">
-              <a href="#" className="text-gray-100 text-lg font-semibold capitalize">{user[0]}</a>
-            </span>
-            
+            <div className="w-8 h-8 rounded-full flex center-content bg-dark-maroon">
+              <p className="text-gray-100 text-lg font-semibold capitalize">{user[0]}</p>
             </div>
-
             {/* Welcome user */}
             <p className="text-base md:flex hidden text-darker-green">
               Welcome back {user}!
             </p>
             {/* Notification */}
-            <HiBell className="w-6 h-6 text-dark-green" />
+            <button><HiBell className="w-6 h-6 text-dark-green" /></button>
+
+             {/* Logout */}
+             <a href="/" className="flex center-content space-x-2 p-2 rounded-md bg-dark-green">
+              <p className="text-base font-semibold text-gray-100">logout</p>
+              <HiLogout className="w-6 h-6 text-gray-100"/>
+            </a>
           </div>
         </div>
 
-        {/* dashboard container */}
-        <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
+         {/*  container */}
+         <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
           {/* Menu Strip */}
           <div className="  md:w-[15%] md:px-4 md:max-h-screeen w-[12%] h-screen bg-dark-green space-y-8 px-2  py-4 flex-col justify-evenly items-center">
+            
             <button className="md:flex md:pt-12 md:space-x-3 items-center">
               <FaUser className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100"> My Account</p>
+              <p className="hidden md:flex text-gray-100">My Account</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
               <FaTachometerAlt className="w-6 h-6 text-light-yellow" />
-              <p className="hidden md:flex text-light-yellow">Dashboard</p>
+              <p className="hidden md:flex text-light-yellow"> Dashboard</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
-              <FaCog className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Settings</p>
+              <FaFileWord className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Sales report</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
-              <FaLeaf className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Loans</p>
+              <FaStore className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Product Inventory</p>
             </button>
+            <button className="md:flex  md:space-x-3 items-center">
+              <FaSwatchbook className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Accounts</p>
+            </button>
+          
           </div>
 
           {/* Charts container*/}
 
           <div className="flex-col w-[79%] space-y-10 mx-auto center-content h-auto">
+           
+            {/* Menu Title */}
+            <h3 className="md:hidden mt-2 text-base font-semibold text-darker-green"></h3>
+
             {/* Data Cards */}
             <div className={"md:hidden"}>
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={234}
-                    description={"Monthly expenditure on farm inputs"}
-                    delta={70}
-                    state={true}
-                  />
-                )}
-              />
-
-              <ChartCard
-                renderItem={() => (
-                  <DataCard
-                    cost={13700}
-                    description={"Weekly income from produce"}
-                    delta={35}
-                    state={true}
-                  />
-                )}
-              />
-
-              <ChartCard
-                renderItem={() => (
-                  <DataCard
-                    cost={750}
-                    description={"Interest Accrude last month"}
-                    delta={9}
-                    state={true}
-                  />
-                )}
-              />
-
-              <ChartCard
-                renderItem={() => (
-                  <DataCard
-                    cost={4500}
-                    description={"Cost of Livestock Immunization"}
-                    delta={25}
-                    state={false}
-                  />
-                )}
-              />
-            </div>
-
-            <div className="hidden md:flex space-x-6">
-              <ChartCard
-                renderItem={() => (
-                  <DataCard
-                    cost={234}
-                    description={"Monthly expenditure on farm inputs"}
-                    styling={"h-[20%]"}
-                    delta={70}
-                    state={true}
-                  />
+                    cost={14}
+                    description={"Pending transactions"}
+                    renderIcon={() => (
+                        <FaMoneyBillAlt  className="text-gray-100 w-6 h-6"/>
+                    )}
+                
+                  >
+                  
+                  </DataCard>
                 )}
               />
 
@@ -177,43 +139,103 @@ function FarmerDashboard() {
               />
             </div>
 
-            {/* Bar & grouped Bar Chart md bkp */}
-            <div className="hidden md:flex md:h-auto space-x-6">
-              <ChartCard
+            <div className="hidden md:flex space-x-6">
+            <ChartCard
                 renderItem={() => (
-                  <Bar data={barChartData}  options={barChartOptions} />
+                  <DataCard
+                    cost={14}
+                    description={"Pending transactions"}
+                    renderIcon={() => (
+                        <FaMoneyBillAlt  className="text-gray-100 w-6 h-6"/>
+                    )}>
+                    
+                    </DataCard>
+                
+                  
                 )}
               />
 
               <ChartCard
                 renderItem={() => (
-                  <Bar data={groupedBarData} height={160} options={groupedBarOptions} />
+                  <DataCard
+                    cost={13700}
+                    description={"Weekly income of produce"}
+                    delta={35}
+                    state={true}
+                  />
+                )}
+              />
+
+              <ChartCard
+                renderItem={() => (
+                  <DataCard
+                    cost={750}
+                    description={"Interest Accrude last month"}
+                    delta={9}
+                    state={true}
+                  />
+                )}
+              />
+
+              <ChartCard
+                renderItem={() => (
+                  <DataCard
+                    cost={4500}
+                    description={"Cost of Livestock Immunization"}
+                    delta={25}
+                    state={false}
+                  />
                 )}
               />
             </div>
-            
-            {/* Bar & grouped Bar Chart sm bkp */}
 
-            <div className={"md:hidden"}>
-            <ChartCard
-                renderItem={() => (
-                  <Bar data={barChartData} height={67}  options={barChartOptions} />
-                )}
-              />
-
+            {/* Line & scatter Charts md break point */}
+            <div className="hidden md:flex md:h-auto space-x-6">
               <ChartCard
                 renderItem={() => (
-                  <Bar data={groupedBarData} height={110} options={groupedBarOptions} />
+                  <Bar
+                    data={multiTypeData}
+                  />
                 )}
               />
-              </div>
+              <ChartCard
+                renderItem={() => (
+                  <Bar
+                    height={160}
+                    options={stackedBarOptions}
+                    data={stackedBarData}
+                  
+                  />
+                )}
+              />
+            </div>
 
-
-          
+            {/* Line & Scatter Charts for sm break point  */}
+            <div className={"md:hidden"}>
+              <ChartCard
+                renderItem={() => (
+                  <Bar
+                    height={67}
+                    data={multiTypeData}
+                 
+                  />
+                )}
+              />
+              <ChartCard
+                renderItem={() => (
+                  <Bar
+                  height={110}  
+                  options={stackedBarOptions}
+                  data={stackedBarData}
+                  />
+                )}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
+            
+        </div>
+    )
 }
 
-export default FarmerDashboard
+export default Vendor

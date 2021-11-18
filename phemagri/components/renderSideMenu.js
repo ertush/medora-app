@@ -2,7 +2,7 @@ import {FaEnvelope, FaFacebookF, FaInstagram, FaTwitter, FaPhoneAlt, FaLinkedin}
 import { useContext, useState } from 'react'
 import {HiChevronRight, HiX} from 'react-icons/hi'
 
-const renderSideMenu = (isNavOpen, setIsNavOpen, loginContext, setUserToLogin) => {
+const renderSideMenu = (isNavOpen, setIsNavOpen, loginContext) => {
 
     const [isDropDown, setIsDropDown] = useState(false)
     const userToLogin = useContext(loginContext)
@@ -27,15 +27,15 @@ const renderSideMenu = (isNavOpen, setIsNavOpen, loginContext, setUserToLogin) =
             <li><a href="#" className="text-gray-100">Services</a></li>
             <li><hr className="text-gray-400 h-1" ></hr></li>
             <li><a href="#" className="text-gray-100">Contacts</a></li>
-            <li><hr className="text-gray-400 h-1" ></hr></li>
-            <li className="flex h-auto items-center justify-between">
+            
+            {/* <li className="flex h-auto items-center justify-between">
             <button onClick={toggleDropDown}  className={`${isDropDown ? 'text-light-yellow' : 'text-gray-100'}`}>Login as</button>
             <p className="text-gray-100">{userToLogin}</p>
             <button className={`w-8 h-8 ${isDropDown ? 'bg-white' : 'bg-light-yellow'} rounded-full flex center-content`}>
             <HiChevronRight onClick={toggleDropDown} className={`w-6 h-6 text-dark-green ${isDropDown ? 'transform duration-400 ease-out rotate-90': ''}`}/>
             </button>
-            </li>
-            <ul className={`${isDropDown ? 'pl-12 space-y-2': 'hidden'}`}>
+            </li> */}
+            {/* <ul className={`${isDropDown ? 'pl-12 space-y-2': 'hidden'}`}>
                 
                 <li  className="text-gray-100"><a href="#" onClick={() => {setUserToLogin('Farmer'); setIsDropDown(false)}}>Farmer</a></li>
                 <li><hr className="text-gray-400 h-1" ></hr></li>
@@ -46,7 +46,7 @@ const renderSideMenu = (isNavOpen, setIsNavOpen, loginContext, setUserToLogin) =
                 <li  className="text-gray-100"><a href="#" onClick={() => {setUserToLogin('Vendor'); setIsDropDown(false)}}>Vendor</a></li>
                
                 
-            </ul>
+            </ul> */}
             <li><hr className="text-gray-400 h-1" ></hr></li>
             <li><a href="#" className="text-gray-100">Impact</a></li>
             <li><hr className="text-gray-400 h-1" ></hr></li>

@@ -1,6 +1,5 @@
 import {useState, createContext} from 'react'
 import { HiMenu} from 'react-icons/hi'
-
 import { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7 } from './blobs'
 import HeaderTitle from './HeaderTitle'
 import renderSideMenu from './renderSideMenu'
@@ -96,22 +95,6 @@ function Header() {
           </button>
           {/* Link Menu */}
           <ul className="md:flex space-x-4 hidden">
-            <li className="flex justify-start items-center w-auto space-x-2">
-              <a href="#" className="text-dark-green">
-                Login as
-              </a>
-              <select
-                onChange={(e) => {
-                  setUserToLogin(e.target.value);
-                }}
-                className="w-auto bg-white"
-              >
-                <option>Farmer</option>
-                <option>Input Provider</option>
-                <option>Investor</option>
-                <option>Vendor</option>
-              </select>
-            </li>
             <li className="flex items-center">
               <a href="#" className="text-dark-green">
                 About

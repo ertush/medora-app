@@ -1,19 +1,18 @@
-
-
 import {useState} from 'react'
-import { FaFileExcel, FaProcedures, FaUser, FaTachometerAlt, FaStore } from 'react-icons/fa'
+import {HiBell} from 'react-icons/hi'
+import { FaIndustry, FaMoneyBill, FaUser } from 'react-icons/fa'
+import { HiChartSquareBar } from 'react-icons/hi'
+import { FaTachometerAlt} from 'react-icons/fa'
+import {lineChartOptions, lineChartData, scatterChartData, scatterChartOptions} from '../shared/DummyData'
+import { Line, Scatter } from 'react-chartjs-2';
 import ChartCard from '../components/ChartCard'
 import DataCard from '../components/DataCard'
-import { HiUserGroup, HiBell } from 'react-icons/hi'
-import {Line} from 'react-chartjs-2'
-import {lineChartData,lineChartOptions, multiAxisOptions, multiAxisData} from '../shared/DummyData'
 
-function InputProviderDashboard() {
-
+function Investor() {
     const [user, setUser] = useState('Martin')
 
     return (
-        <div>
+      <div>
         {/* Menu Bar */}
         <div
           className="
@@ -46,12 +45,18 @@ function InputProviderDashboard() {
               Welcome back {user}!
             </p>
             {/* Notification */}
-            <HiBell className="w-6 h-6 text-dark-green" />
+            <button><HiBell className="w-6 h-6 text-dark-green" /></button>
+
+            {/* Logout */}
+            <a href="/" className="flex center-content space-x-2 p-2 rounded-md bg-dark-green">
+              <p className="text-base font-semibold text-gray-100">logout</p>
+              <HiLogout className="w-6 h-6 text-gray-100"/>
+            </a>
           </div>
         </div>
-      
-      {/* dashboard container */}
-      <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
+
+        {/*  container */}
+        <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
           {/* Menu Strip */}
           <div className="  md:w-[15%] md:px-4 md:max-h-screeen w-[12%] h-screen bg-dark-green space-y-8 px-2  py-4 flex-col justify-evenly items-center">
             
@@ -64,16 +69,16 @@ function InputProviderDashboard() {
               <p className="hidden md:flex text-light-yellow">Dashboard</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
-              <HiUserGroup className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Farmer Saccos</p>
+              <HiChartSquareBar className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Market trends</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
-              <FaStore className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Inputs Inventory</p>
+              <FaMoneyBill className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Market Segments</p>
             </button>
             <button className="md:flex  md:space-x-3 items-center">
-              <FaFileExcel className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Input Records</p>
+              <FaIndustry className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Establishments</p>
             </button>
           
           </div>
@@ -187,10 +192,10 @@ function InputProviderDashboard() {
               />
               <ChartCard
                 renderItem={() => (
-                  <Line
+                  <Scatter
                     height={160}
-                    data={multiAxisData}
-                    options={multiAxisOptions}
+                    data={scatterChartData}
+                    options={scatterChartOptions}
                   />
                 )}
               />
@@ -209,19 +214,18 @@ function InputProviderDashboard() {
               />
               <ChartCard
                 renderItem={() => (
-                  <Line
+                  <Scatter
                   height={110}
-                    data={multiAxisData}
-                    options={multiAxisOptions}
+                    data={scatterChartData}
+                    options={scatterChartOptions}
                   />
                 )}
               />
             </div>
           </div>
         </div>
-        
-        </div>
-    )
+      </div>
+    );
 }
 
-export default InputProviderDashboard
+export default Investor

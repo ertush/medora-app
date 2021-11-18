@@ -1,16 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-// import { getFirestore, collection, getDocs } from 'firebase/database'
-// import { app } from '../../shared/firebase'
 const axios = require('axios');
 
 export default async function authAPI(req, res) {
 
-  const dbUrl = 'https://phemagri-899c0-default-rtdb.firebaseio.com/credentials/users.json'
-
-
-  const {name, email, phone, password} = req.body;
-
+  console.log({body: req.body})
+  const {name, email, phone, password, loginType} = req.body;
+  const dbUrl = `https://phemagri-899c0-default-rtdb.firebaseio.com/credentials/users/${email.split('@')[0]}.json`
 
     // Create User
 if (req.body.phone !== undefined) {
@@ -35,24 +31,46 @@ else
     // Read User
 
   try {
-    const emailResponse = await axios(
+
+
+    const reqResponse = await axios(
       {
         method: 'get',
-        url: queryEmailUrl
+        url: dbUrl
       }
     )
 
-    const passwdResponse = await axios(
-      {
-        method: 'get',
-        url: queryPasswdUrl
-      }
-    )
+     // auth
+    const verifyEmail = () => JSON.stringify(reqResponse.data).match(email) !== null
+    const verifyPassword = () => JSON.stringify(reqResponse.data).match(password) !== null
 
-    // auth
-    if(emailResponse && passwdResponse){
-       console.log({emailResponse, passwdResponse})
-    }
+
+       // Login User
+       if (verifyEmail() && verifyPassword){
+         switch (loginType[0]) {
+           case "Farmer":
+             res.status(200).redirect("/Farmer");
+             break;
+           case "Input Provider":
+             res.status(200).redirect("/InputProvider");
+             break;
+           case "Vendor":
+             res.status(200).redirect("/Vendor");
+             break;
+           case "Investor":
+             res.status(200).redirect("/Investor");
+             break;
+           default:
+             res.status(200).redirect("/Farmer");
+             break;
+         }
+        
+        }
+        else{
+          res.status(200).redirect('/')
+        }
+
+    // res.status(200).redirect('/')
   }
   catch(error){
   console.log(error.message)

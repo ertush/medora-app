@@ -95,7 +95,7 @@ function SignInForm({isLoginClicked, setIsLoginClicked, userToLogin}){
         className="flex-col space-y-6 px-4"
         action="api/auth"
         method="POST"
-        id="loginSignUp"
+        id="login-signup-form"
       >
         {/* Name */}
         <div className="mx-auto flex center-content w-full">
@@ -222,6 +222,27 @@ function SignInForm({isLoginClicked, setIsLoginClicked, userToLogin}){
             
           </div>
           
+        )}
+
+        {/* Login as Dropdown */}
+        {isLoginClicked && (
+        <div>
+          <li className="flex justify-start items-center w-auto space-x-2">
+                <label htmlFor="loginType" className="text-dark-green">
+                  Login as
+                </label>
+                <select
+                  form="login-signup-form"
+                  name="loginType"
+                  className="w-auto bg-white"
+                >
+                  <option>Farmer</option>
+                  <option>Input Provider</option>
+                  <option>Investor</option>
+                  <option>Vendor</option>
+                </select>
+              </li>
+        </div>
         )}
 
         {/* Login & signup Button */}

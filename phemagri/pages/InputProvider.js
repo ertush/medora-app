@@ -1,20 +1,22 @@
 
+
 import {useState} from 'react'
-import {HiBell} from 'react-icons/hi'
-import { FaFileWord, FaMoneyBillAlt, FaStore, FaSwatchbook, FaUser } from 'react-icons/fa'
-import { FaTachometerAlt} from 'react-icons/fa' 
-import {multiTypeData, stackedBarData, stackedBarOptions} from '../shared/DummyData'
-import { Bar } from 'react-chartjs-2'
+import { FaFileExcel,  FaUser, FaTachometerAlt, FaStore } from 'react-icons/fa'
+import { NextRouter } from 'next/dist/client/router'
 import ChartCard from '../components/ChartCard'
 import DataCard from '../components/DataCard'
+import { HiUserGroup, HiBell, HiLogout } from 'react-icons/hi'
+import {Line} from 'react-chartjs-2'
+import {lineChartData,lineChartOptions, multiAxisOptions, multiAxisData} from '../shared/DummyData'
 
-function VendorDashboard() {
+function InputProvider() {
 
     const [user, setUser] = useState('Martin')
+
     return (
         <div>
-         {/* Menu Bar */}
-         <div
+        {/* Menu Bar */}
+        <div
           className="
         w-full
         flex
@@ -42,13 +44,21 @@ function VendorDashboard() {
             <p className="text-base md:flex hidden text-darker-green">
               Welcome back {user}!
             </p>
+
             {/* Notification */}
-            <HiBell className="w-6 h-6 text-dark-green" />
+            <button><HiBell className="w-6 h-6 text-dark-green" /> </button>
+
+            {/* Logout */}
+            <a href="/" className="flex center-content space-x-2 p-2 rounded-md bg-dark-green">
+              <p className="text-base font-semibold text-gray-100">logout</p>
+              <HiLogout className="w-6 h-6 text-gray-100"/>
+            </a>
+            
           </div>
         </div>
-
-         {/* dashboard container */}
-         <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
+      
+      {/*  container */}
+      <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
           {/* Menu Strip */}
           <div className="  md:w-[15%] md:px-4 md:max-h-screeen w-[12%] h-screen bg-dark-green space-y-8 px-2  py-4 flex-col justify-evenly items-center">
             
@@ -61,16 +71,16 @@ function VendorDashboard() {
               <p className="hidden md:flex text-light-yellow">Dashboard</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
-              <FaFileWord className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Sales report</p>
+              <HiUserGroup className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Farmer Saccos</p>
             </button>
             <button className="md:flex md:space-x-3 items-center">
               <FaStore className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Product Inventory</p>
+              <p className="hidden md:flex text-gray-100">Inputs Inventory</p>
             </button>
             <button className="md:flex  md:space-x-3 items-center">
-              <FaSwatchbook className="w-6 h-6 text-gray-100" />
-              <p className="hidden md:flex text-gray-100">Accounts</p>
+              <FaFileExcel className="w-6 h-6 text-gray-100" />
+              <p className="hidden md:flex text-gray-100">Input Records</p>
             </button>
           
           </div>
@@ -78,24 +88,16 @@ function VendorDashboard() {
           {/* Charts container*/}
 
           <div className="flex-col w-[79%] space-y-10 mx-auto center-content h-auto">
-           
-            {/* Menu Title */}
-            <h3 className="md:hidden mt-2 text-base font-semibold text-darker-green">Dashboard</h3>
-
             {/* Data Cards */}
             <div className={"md:hidden"}>
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={14}
-                    description={"Pending transactions"}
-                    renderIcon={() => (
-                        <FaMoneyBillAlt  className="text-gray-100 w-6 h-6"/>
-                    )}
-                
-                  >
-                  
-                  </DataCard>
+                    cost={234}
+                    description={"Monthly expenditure on farm inputs"}
+                    delta={70}
+                    state={true}
+                  />
                 )}
               />
 
@@ -115,7 +117,7 @@ function VendorDashboard() {
                   <DataCard
                     cost={750}
                     description={"Interest Accrude last month"}
-                    delta={9}
+                    delta={19}
                     state={true}
                   />
                 )}
@@ -134,18 +136,15 @@ function VendorDashboard() {
             </div>
 
             <div className="hidden md:flex space-x-6">
-            <ChartCard
+              <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={14}
-                    description={"Pending transactions"}
-                    renderIcon={() => (
-                        <FaMoneyBillAlt  className="text-gray-100 w-6 h-6"/>
-                    )}>
-                    
-                    </DataCard>
-                
-                  
+                    cost={234}
+                    description={"Monthly expenditure on farm inputs"}
+                    styling={"h-[20%]"}
+                    delta={70}
+                    state={true}
+                  />
                 )}
               />
 
@@ -165,7 +164,7 @@ function VendorDashboard() {
                   <DataCard
                     cost={750}
                     description={"Interest Accrude last month"}
-                    delta={9}
+                    delta={19}
                     state={true}
                   />
                 )}
@@ -187,18 +186,18 @@ function VendorDashboard() {
             <div className="hidden md:flex md:h-auto space-x-6">
               <ChartCard
                 renderItem={() => (
-                  <Bar
-                    data={multiTypeData}
+                  <Line
+                    data={lineChartData}
+                    options={lineChartOptions}
                   />
                 )}
               />
               <ChartCard
                 renderItem={() => (
-                  <Bar
+                  <Line
                     height={160}
-                    options={stackedBarOptions}
-                    data={stackedBarData}
-                  
+                    data={multiAxisData}
+                    options={multiAxisOptions}
                   />
                 )}
               />
@@ -208,28 +207,28 @@ function VendorDashboard() {
             <div className={"md:hidden"}>
               <ChartCard
                 renderItem={() => (
-                  <Bar
+                  <Line
                     height={67}
-                    data={multiTypeData}
-                 
+                    data={lineChartData}
+                    options={lineChartOptions}
                   />
                 )}
               />
               <ChartCard
                 renderItem={() => (
-                  <Bar
-                  height={110}  
-                  options={stackedBarOptions}
-                  data={stackedBarData}
+                  <Line
+                  height={110}
+                    data={multiAxisData}
+                    options={multiAxisOptions}
                   />
                 )}
               />
             </div>
           </div>
         </div>
-            
+        
         </div>
     )
 }
 
-export default VendorDashboard
+export default InputProvider
