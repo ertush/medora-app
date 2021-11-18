@@ -2,12 +2,20 @@
 
 const axios = require("axios");
 
+
 export default async function authAPI(req, res) {
-  console.log({ body: req.body });
-  const { name, email, phone, password, loginType } = req.body;
+
+;
+  const { name, email, phone, password } = req.body;
+  
+ const { loginType } = req.query;
+
+  console.log(loginType);
+
   const dbUrl = `https://phemagri-899c0-default-rtdb.firebaseio.com/credentials/users/${
     email.split("@")[0]
   }.json`;
+
 
   // Create User
   if (req.body.phone !== undefined) {
@@ -40,8 +48,9 @@ export default async function authAPI(req, res) {
         JSON.stringify(reqResponse.data).match(password) !== null;
 
       // Login User
-      if (verifyEmail() && verifyPassword) {
-        switch (loginType[0]) {
+      if (verifyEmail() && verifyPassword()) {
+
+        switch (loginType) { 
           case "Farmer":
             res.status(200).redirect("/Farmer");
             break;
@@ -62,9 +71,8 @@ export default async function authAPI(req, res) {
         res.status(200).redirect("/");
       }
 
-      // res.status(200).redirect('/')
     } catch (error) {
-      console.log(error.message);
+      console.log({error:error.message});
     }
   }
 }

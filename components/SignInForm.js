@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+const axios = require('axios');
 // import User from '.../Model/user'
 
 function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
@@ -10,14 +11,18 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
   const [isPassword, setIsPassword] = useState("");
   const [isMatch, setIsMatch] = useState("");
   const [isPhone, setIsPhone] = useState("");
-
+  const [dropDown, setDropDown] = useState("Farmer");
+ 
+  
   const [nameFocus, setNameFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [phoneFocus, setPhoneFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   const passRef = useRef(null);
+  const emailRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
 
   const handleNameChange = (e) => {
@@ -27,6 +32,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
   const handlePasswordChange = (e) => {
     e.required = true;
     setIsPassword(e.target.value !== "");
+    
   };
 
   const handleMatch = (e) => {
@@ -76,6 +82,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
     isName && isPhone && isEmail && isPassword && isMatch;
 
   useEffect(() => {
+    
     if (
       (isLoginClicked && loginValidation()) ||
       (!isLoginClicked && signUpValidation())
@@ -85,21 +92,25 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
       setDisabled(true);
     }
 
+    return () => {
+      setIsLoading(false)
+    }
+
     // const newUser = await
   }, [isName, isPhone, isPassword, isEmail, isMatch]);
 
   return (
     <form
-      className="flex-col space-y-6 px-4"
-      action="api/auth"
+      action={`api/auth?loginType=${dropDown}`}
       method="POST"
+      className="flex-col space-y-6 px-4"
       id="login-signup-form"
     >
       {/* Name */}
       <div className="mx-auto flex center-content w-full">
         {isLoginClicked ? (
           <h3 className="text-lg font-extrabold text-dark-maroon">
-            Login as {userToLogin}
+            Login as {dropDown}
           </h3>
         ) : (
           <h3 className="text-lg font-extrabold text-dark-maroon">
@@ -135,6 +146,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
           Email<span className="text-red-500 font-semibold">*</span>
         </label>
         <input
+          ref={emailRef}
           onFocus={handleEmailFocus}
           onChange={handleEmailChange}
           className="w-full focus:outline-none focus:border-light-yellow border-b-2 h-8 border-gray-400"
@@ -156,7 +168,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
             Phone
           </label>
           <input
-            placeholder="+254 XXXX XXX"
+            placeholder="+254XXXXXXX"
             onFocus={handlePhoneFocus}
             onChange={handlePhoneChange}
             name="phone"
@@ -210,7 +222,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
             onChange={handleMatch}
             onFocus={handleConfirmPasswordFocus}
             className="w-full border-b-2 h-8 focus:outline-none focus:border-light-yellow border-gray-400"
-            type="text"
+            type="password"
           />
           {!isMatch && confirmPasswordFocus && (
             <span className="text-sm font-normal italic text-red-400">
@@ -221,23 +233,29 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
       )}
 
       {/* Login as Dropdown */}
+      
       {isLoginClicked && (
         <div>
+       
           <li className="flex justify-start items-center w-auto space-x-2">
             <label htmlFor="loginType" className="text-dark-green">
-              Login as
+              Login as a
             </label>
             <select
               form="login-signup-form"
               name="loginType"
+              onChange={(e) => {setDropDown(e.target.value)}}
               className="w-auto bg-white"
             >
-              <option>Farmer</option>
-              <option>Input Provider</option>
-              <option>Investor</option>
-              <option>Vendor</option>
+              <option value="Farmer">Farmer</option>
+              <option value="Input Provider">Input Provider</option>
+              <option value="Investor">Investor</option>
+              <option value="Vendor">Vendor</option>
             </select>
+            
+          
           </li>
+         
         </div>
       )}
 
@@ -273,16 +291,22 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
         {isLoginClicked ? (
           <button
             disabled={disabled}
-            type="submit"
+            type='submit'
             className={`p-4 bg-light-yellow w-full flex center-content text-base font-semibold rounded-lg text-dark-green ${
               disabled ? "opacity-50" : "opacity-90"
             }`}
           >
-            Login
+            {
+              isLoading ? (
+                <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                </svg>
+              ): <p>Login</p>
+            }
           </button>
         ) : (
           <button
             disabled={disabled}
+            onClick={() => {setIsLoading(true)}}
             type="submit"
             className={`p-4 bg-light-yellow w-full flex center-content text-base font-semibold rounded-lg text-dark-green
               ${disabled ? "opacity-50" : "opacity-90"}

@@ -1,5 +1,5 @@
 import {HiBell} from 'react-icons/hi'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {HiLogout} from 'react-icons/hi'
 import ChartCard from '../components/ChartCard'
 import {FaUser, FaTachometerAlt, FaCog, FaLeaf} from 'react-icons/fa'
@@ -8,11 +8,10 @@ import { barChartData, barChartOptions,groupedBarOptions, groupedBarData } from 
 import { Bar, } from 'react-chartjs-2';
 import DataCard from '../components/DataCard'
 
+
 function Farmer() {
 
-
-    
-    const [user, setUser] = useState('User')
+    const [user, _] = useState('User')
     const [selected, setSelected] = useState(2)
 
     const handleSelect = (e) => {
@@ -50,9 +49,9 @@ function Farmer() {
             
             </div>
 
-            {/* Welcome user */}
+            {/* User email */}
             <p className="text-base md:flex hidden text-darker-green">
-              Welcome back {user}!
+              {user}
             </p>
             {/* Notification */}
             <button><HiBell className="w-6 h-6 text-dark-green" /></button>
