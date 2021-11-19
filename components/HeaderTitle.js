@@ -1,7 +1,7 @@
 function HeaderTitle() {
     return (
         <div className="absolute top-[40%] left-[10%] md:left-[15%] flex-col items-start">
-        <p className="w-[90%] text-4xl font-extrabold text-dark-green">
+        <p className="w-[90%] text-4xl font-extrabold text-light-yellow">
           {" "}
           Take Control of your produce today
         </p>

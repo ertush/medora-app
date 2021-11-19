@@ -149,7 +149,7 @@ function Blob7() {
         width="100%"
         height="100%"
         clipPath="url(#shape)"
-        href="https://i.ibb.co/D1P1xVP/pexels-mark-stebnicki-2252584.jpg"
+        href="https://i.ibb.co/zSMX12v/impact-financing.jpg"
         preserveAspectRatio="none"
       ></image>
       
