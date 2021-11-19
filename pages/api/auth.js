@@ -27,7 +27,7 @@ export default async function authAPI(req, res) {
       });
 
       if (response) {
-        res.writeHead(302, { Location: '/' }).end()
+        res.writeHead(302, { Location: '/UserCreated' }).end()
       }
     } catch (error) {
       console.log(error.message);
