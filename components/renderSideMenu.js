@@ -25,7 +25,7 @@ const renderSideMenu = (isNavOpen, setIsNavOpen, loginContext) => {
     <div
       className={`${
         isNavOpen
-          ? "h-full w-[80%] bg-dark-green transition duration-500 ease-in translate-x-0"
+          ? "max-h-screen w-[80%] bg-dark-green transition duration-500 ease-in translate-x-0"
           : "hidden"
       }`}
     >

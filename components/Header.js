@@ -15,7 +15,7 @@ function Header() {
     const [isLoginClicked, setIsLoginClicked] = useState(null)
 
     return (
-      <div className="w-full h-full relative">
+      <div className="w-full h-full flex-1 relative">
         {/* Blob 1 */}
         <div className="z-2 absolute w-40 h-40 top-1 right-0 animate-spin-slow">
             <Blob1 />
