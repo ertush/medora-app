@@ -149,11 +149,39 @@ function Blob7() {
         width="100%"
         height="100%"
         clipPath="url(#shape)"
-        href="https://agrarian-iot.github.io/assets/img/backgrounds/bg-masthead-cabbage.jpg"
+        href="https://i.ibb.co/D1P1xVP/pexels-mark-stebnicki-2252584.jpg"
         preserveAspectRatio="none"
       ></image>
+      
     </svg>
   );
 }
 
-export { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7 };
+function Blob8(){
+   return(
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="100%" id="blobSvg">
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: rgb(60, 165, 92);"></stop>
+        <stop offset="100%" style="stop-color: rgb(181, 172, 73);"></stop>
+      </linearGradient>
+    </defs>
+    <path id="blob" d="M309,349Q135,448,132,244Q129,40,306,145Q483,250,309,349Z" fill="url(#gradient)"></path>
+  </svg>
+   )
+}
+
+function Blob9(){
+  return(
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="100%" id="blobSvg">
+  <defs>
+    <pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" fill="#d1d8e0">
+      <path d="M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z"></path>
+    </pattern>
+  </defs>
+  <path id="blob" d="M309,349Q135,448,132,244Q129,40,306,145Q483,250,309,349Z" fill="url(#pattern)"></path>
+</svg>
+  )
+}
+
+export { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7, Blob8, Blob9 };

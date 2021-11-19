@@ -78,7 +78,7 @@ const barChartData = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
       {
-        label: '# of Votes',
+        label: '% Count',
         data: [12, 19, 3, 5, 2, 3],
         fill: false,
         backgroundColor: 'rgb(255, 99, 132)',
@@ -139,19 +139,19 @@ const barChartData = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
       {
-        label: '# of Red Votes',
+        label: '# of Red Count',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: 'rgb(255, 99, 132)',
         stack: 'Stack 0',
       },
       {
-        label: '# of Blue Votes',
+        label: '# of Blue Count',
         data: [2, 3, 20, 5, 1, 4],
         backgroundColor: 'rgb(54, 162, 235)',
         stack: 'Stack 0',
       },
       {
-        label: '# of Green Votes',
+        label: '# of Green Count',
         data: [3, 10, 13, 15, 22, 30],
         backgroundColor: 'rgb(75, 192, 192)',
         stack: 'Stack 1',
@@ -175,7 +175,7 @@ const barChartData = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
       {
-        label: '# of Votes',
+        label: '% Count',
         data: [12, 19, 3, 5, 2, 3],
         fill: false,
         backgroundColor: 'rgb(255, 99, 132)',
@@ -183,7 +183,7 @@ const barChartData = {
         yAxisID: 'y-axis-1',
       },
       {
-        label: '# of No Votes',
+        label: '# of No Count',
         data: [1, 2, 1, 1, 2, 2],
         fill: false,
         backgroundColor: 'rgb(54, 162, 235)',
@@ -248,7 +248,7 @@ const polarData = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
       {
-        label: '# of Votes',
+        label: '% Count',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.5)',
@@ -267,17 +267,17 @@ const polarData = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
       {
-        label: '# of Red Votes',
+        label: '# of Red Count',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: 'rgb(255, 99, 132)',
       },
       {
-        label: '# of Blue Votes',
+        label: '# of Blue Count',
         data: [2, 3, 20, 5, 1, 4],
         backgroundColor: 'rgb(54, 162, 235)',
       },
       {
-        label: '# of Green Votes',
+        label: '# of Green Count',
         data: [3, 10, 13, 15, 22, 30],
         backgroundColor: 'rgb(75, 192, 192)',
       },

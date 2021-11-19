@@ -1,6 +1,6 @@
 import {useState, createContext} from 'react'
 import { HiMenu} from 'react-icons/hi'
-import { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7 } from './Blobs'
+import { Blob1, Blob2, Blob3, Blob4, Blob5, Blob6, Blob7, Blob8, Blob9 } from './Blobs'
 import HeaderTitle from './HeaderTitle'
 import renderSideMenu from './renderSideMenu'
 import SignInForm from './SignInForm'
@@ -44,6 +44,16 @@ function Header() {
         {/* Blob 6  */}
         <div className="z-2 absolute -right-20 rotate-45 w-48 top-64">
           <Blob6 />
+        </div>
+
+        {/* Blob9 */}
+        <div className="z-2  absolute right-0 w-full h-36 rotate-10 md:w-[60%] md:-left-10 md:top-40">
+          <Blob9/>        
+        </div>
+
+            {/* Blob9 */}
+        <div className="z-2  absolute md:right-0 top-20 w-full h-36 rotate-10 md:w-[60%] md:righ-0 md:-top-40">
+          <Blob9/>        
         </div>
 
         {/* Blob 7  Main Blob*/}
@@ -96,18 +106,28 @@ function Header() {
           {/* Link Menu */}
           <ul className="md:flex space-x-4 hidden">
             <li className="flex items-center">
-              <a href="#" className="text-dark-green">
+              <a href="#" className="text-dark-green hover:scale-110 transform hover:ease-in-out duration-500">
                 About
               </a>
             </li>
             <li className="flex items-center">
-              <a href="#" className="text-dark-green">
+              <a href="#" className="text-dark-green hover:scale-110 transform hover:ease-in-out duration-500">
                 Contacts
               </a>
             </li>
             <li className="flex items-center">
-              <a href="#" className="text-dark-green">
+              <a href="#" className="text-dark-green hover:scale-110 transform hover:ease-in-out duration-500">
                 Services
+              </a>
+            </li>
+            <li className="flex items-center">
+              <a href="#" className="text-dark-green hover:scale-110 transform hover:ease-in-out duration-500">
+                Impact
+              </a>
+            </li>
+            <li className="flex items-center">
+              <a href="#" className="text-dark-green hover:scale-110 transform hover:ease-in-out duration-500">
+                Market place
               </a>
             </li>
           </ul>

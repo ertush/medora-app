@@ -23,9 +23,7 @@ function Investor() {
         className="
         w-full
         flex
-        justify-between <ChartCard 
-                    renderItem={() => <Pie data={pieChartData} title={'crop coverage by acerage'} />} 
-                />
+        justify-between 
         items-center
         p-4
         bg-gray-100 
@@ -49,7 +47,7 @@ function Investor() {
           </div>
           {/* Welcome user */}
           <p className="text-base md:flex hidden text-darker-green">
-            Welcome back {user}!
+            Welcome back!
           </p>
           {/* Notification */}
           <button>
@@ -71,7 +69,8 @@ function Investor() {
       <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
         {/* Menu Strip */}
         <div className="  md:w-[15%] md:px-4 md:max-h-screeen w-[12%] h-screen bg-dark-green space-y-8 px-2  py-4 flex-col justify-evenly items-center">
-          <button className="md:flex md:pt-12 md:space-x-3 items-center">
+        <p className="hidden md:flex md:pt-4 text-gray-100 font-bold">Investor View</p>
+          <button className="md:flex md:space-x-3 items-center">
             <FaUser className="w-6 h-6 text-gray-100" />
             <p className="hidden md:flex text-gray-100">My Account</p>
           </button>
@@ -101,8 +100,8 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={234}
-                  description={"Monthly expenditure on farm inputs"}
+                  cost={6800000}
+                  description={"Total Shares Owned"}
                   delta={70}
                   state={true}
                 />
@@ -112,8 +111,8 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={13700}
-                  description={"Weekly income of produce"}
+                  cost={137440}
+                  description={"Money Lent Out"}
                   delta={35}
                   state={true}
                 />
@@ -123,9 +122,9 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={750}
-                  description={"Interest Accrude last month"}
-                  delta={9}
+                  cost={780000}
+                  description={"Return on Investment"}
+                  delta={19}
                   state={true}
                 />
               )}
@@ -134,8 +133,8 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={4500}
-                  description={"Cost of Livestock Immunization"}
+                  cost={90000}
+                  description={"Annual rate of Business growth"}
                   delta={25}
                   state={false}
                 />
@@ -148,7 +147,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={234}
-                  description={"Monthly expenditure on farm inputs"}
+                  description={"Total Shares Owned"}
                   styling={"h-[20%]"}
                   delta={70}
                   state={true}
@@ -160,7 +159,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={13700}
-                  description={"Weekly income of produce"}
+                  description={"Money Lent Out"}
                   delta={35}
                   state={true}
                 />
@@ -171,7 +170,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={750}
-                  description={"Interest Accrude last month"}
+                  description={"Return on Investment"}
                   delta={9}
                   state={true}
                 />
@@ -182,7 +181,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={4500}
-                  description={"Cost of Livestock Immunization"}
+                  description={"Annual rate of Business growth"}
                   delta={25}
                   state={false}
                 />

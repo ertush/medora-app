@@ -27,7 +27,7 @@ export default async function authAPI(req, res) {
       });
 
       if (response) {
-        res.status(200).redirect("/");
+        res.writeHead(302, { Location: '/' }).end()
       }
     } catch (error) {
       console.log(error.message);
@@ -52,19 +52,19 @@ export default async function authAPI(req, res) {
 
         switch (loginType) { 
           case "Farmer":
-            res.status(200).redirect("/Farmer");
+            res.writeHead(302, { Location: '/Farmer' }).end()
             break;
           case "Input Provider":
-            res.status(200).redirect("/InputProvider");
+            res.writeHead(302, { Location: '/InputProvider' }).end()
             break;
           case "Vendor":
-            res.status(200).redirect("/Vendor");
+            res.writeHead(302, { Location: '/Vendor' }).end()
             break;
           case "Investor":
-            res.status(200).redirect("/Investor");
+            res.writeHead(302, { Location: '/Investor' }).end()
             break;
           default:
-            res.status(200).redirect("/Farmer");
+            res.writeHead(302, { Location: '/InFarmer' }).end()
             break;
         }
       } else {

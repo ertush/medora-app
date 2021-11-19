@@ -41,7 +41,7 @@ function InputProvider() {
             </div>
             {/* Welcome user */}
             <p className="text-base md:flex hidden text-darker-green">
-              Welcome back {user}!
+              Welcome back!
             </p>
 
             {/* Notification */}
@@ -60,8 +60,8 @@ function InputProvider() {
       <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
           {/* Menu Strip */}
           <div className="  md:w-[15%] md:px-4 md:max-h-screeen w-[12%] h-screen bg-dark-green space-y-8 px-2  py-4 flex-col justify-evenly items-center">
-            
-            <button className="md:flex md:pt-12 md:space-x-3 items-center">
+            <p className="hidden md:flex md:pt-4 text-gray-100 font-bold">Input Provider View</p>
+            <button className="md:flex  md:space-x-3 items-center">
               <FaUser className="w-6 h-6 text-gray-100" />
               <p className="hidden md:flex text-gray-100">My Account</p>
             </button>
@@ -92,9 +92,9 @@ function InputProvider() {
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={234}
-                    description={"Monthly expenditure on farm inputs"}
-                    delta={70}
+                    cost={2344}
+                    description={"Cost of units farm input sold"}
+                    delta={81}
                     state={true}
                   />
                 )}
@@ -103,8 +103,8 @@ function InputProvider() {
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={13700}
-                    description={"Weekly income of produce"}
+                    cost={1240}
+                    description={"Inputs on Demand"}
                     delta={35}
                     state={true}
                   />
@@ -114,8 +114,8 @@ function InputProvider() {
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={750}
-                    description={"Interest Accrude last month"}
+                    cost={389750}
+                    description={"Profits Accrude p/a"}
                     delta={19}
                     state={true}
                   />
@@ -126,7 +126,7 @@ function InputProvider() {
                 renderItem={() => (
                   <DataCard
                     cost={4500}
-                    description={"Cost of Livestock Immunization"}
+                    description={"Happy Farmers"}
                     delta={25}
                     state={false}
                   />
@@ -139,7 +139,7 @@ function InputProvider() {
                 renderItem={() => (
                   <DataCard
                     cost={234}
-                    description={"Monthly expenditure on farm inputs"}
+                    description={"Cost of units farm input sold"}
                     styling={"h-[20%]"}
                     delta={70}
                     state={true}
@@ -151,7 +151,7 @@ function InputProvider() {
                 renderItem={() => (
                   <DataCard
                     cost={13700}
-                    description={"Weekly income of produce"}
+                    description={"Inputs on demand"}
                     delta={35}
                     state={true}
                   />
@@ -161,8 +161,8 @@ function InputProvider() {
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={750}
-                    description={"Interest Accrude last month"}
+                    cost={790}
+                    description={"Profits Accrude p/a"}
                     delta={19}
                     state={true}
                   />
@@ -172,9 +172,9 @@ function InputProvider() {
               <ChartCard
                 renderItem={() => (
                   <DataCard
-                    cost={4500}
-                    description={"Cost of Livestock Immunization"}
-                    delta={25}
+                    cost={1200}
+                    description={"Cost of Input per capita"}
+                    delta={23}
                     state={false}
                   />
                 )}
