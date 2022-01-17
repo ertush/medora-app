@@ -1,9 +1,17 @@
 import {Modal, ModalBody, Input, Textarea, Button} from '@windmill/react-ui'
 
+import {useState} from 'react'
 
 function RecordPatientForm() {
+
+    const [close, setClose] = useState(false)
+
+    const closeModal = () => {
+        setClose(true)
+    }
+
     return (
-       <Modal isOpen={true} >
+       <Modal isOpen={!close} onClose={() => closeModal()}>
            <ModalBody>
            <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto flex flex-wrap">
