@@ -103,17 +103,17 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
     <form
       action={`api/auth?loginType=${dropDown}`}
       method="POST"
-      className="flex-col space-y-6 px-4"
+      className="flex-col space-y-6 px-2 py-6"
       id="login-signup-form"
     >
       {/* Name */}
       <div className="mx-auto flex center-content w-full">
         {isLoginClicked ? (
-          <h3 className="text-lg font-extrabold text-dark-maroon">
-            Login as {dropDown}
+          <h3 className="text-lg font-extrabold text-dark-green">
+            Login
           </h3>
         ) : (
-          <h3 className="text-lg font-extrabold text-dark-maroon">
+          <h3 className="text-lg font-extrabold text-dark-green">
             Let's Create Your Account
           </h3>
         )}
@@ -237,7 +237,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
       {isLoginClicked && (
         <div>
        
-          <li className="flex justify-start items-center w-auto space-x-2">
+          {/* <li className="flex justify-start items-center w-auto space-x-2">
             <label htmlFor="loginType" className="text-dark-green">
               Login as a
             </label>
@@ -254,7 +254,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
             </select>
             
           
-          </li>
+          </li> */}
          
         </div>
       )}
@@ -267,7 +267,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
           }}
           className={`${
             isLoginClicked
-              ? " text-lg font-semibold bg-dark-green px-4 py-1 rounded-3xl text-light-yellow"
+              ? " text-lg font-semibold bg-dark-green px-4 py-1 rounded-3xl text-gray-100"
               : "text-lg font-semibold text-dark-green"
           } cursor-pointer`}
         >
@@ -280,7 +280,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
           className={`${
             isLoginClicked
               ? "text-lg font-semibold text-dark-green"
-              : "text-lg font-semibold text-light-yellow bg-dark-green px-4 py-1 rounded-3xl"
+              : "text-lg font-semibold text-gray-100 bg-dark-green px-4 py-1 rounded-3xl"
           } cursor-pointer`}
         >
           signup
@@ -292,7 +292,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
           <button
             disabled={disabled}
             type='submit'
-            className={`p-4 bg-light-yellow w-full flex center-content text-base font-semibold rounded-lg text-dark-green ${
+            className={`p-4 bg-light-yellow w-full flex center-content text-base font-semibold rounded-lg text-gray-100 ${
               disabled ? "opacity-50" : "opacity-90"
             }`}
           >
@@ -308,7 +308,7 @@ function SignInForm({ isLoginClicked, setIsLoginClicked, userToLogin }) {
             disabled={disabled}
             onClick={() => {setIsLoading(true)}}
             type="submit"
-            className={`p-4 bg-light-yellow w-full flex center-content text-base font-semibold rounded-lg text-dark-green
+            className={`p-4 bg-light-yellow w-full flex center-content text-base font-semibold rounded-lg text-gray-100
               ${disabled ? "opacity-50" : "opacity-90"}
               `}
           >

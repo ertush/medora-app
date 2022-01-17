@@ -1,11 +1,15 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import { Windmill } from '@windmill/react-ui'
+import medoraTheme from "../assets/medoraTheme";
+
 
 export default function Home() {
   return (
+    <Windmill theme={medoraTheme}>
     <div className="w-full flex-1 flex-col center-content min-h-screen py-2">
       <Head>
-        <title>Phem-agri</title>
+        <title>Medora Health</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -16,5 +20,6 @@ export default function Home() {
         <Header />
       </main>
     </div>
+    </Windmill>
   );
 }

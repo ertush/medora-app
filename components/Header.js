@@ -57,7 +57,7 @@ function Header() {
         </div>
 
         {/* Blob 7  Main Blob*/}
-        <div className="z-2  absolute top-20 right-0 w-full h-36 rotate-10 md:w-[60%] md:-left-10 md:top-[10%]">
+        <div className="z-2  absolute top-20 right-0 w-full h-36 rotate-10 md:w-[40%] md:left-[300px] md:top-[450px]">
           <Blob7 />
          
          {/* Header Title */}
@@ -75,7 +75,7 @@ function Header() {
         </div>
 
         {/* Header title md breakpoint */}
-        <div className="hidden md:flex boreder-2 w-[40%] absolute top-72 left-[25%]"><HeaderTitle /></div>
+        <div className="hidden md:flex boreder-2 w-[40%] absolute top-36 left-[15%]"><HeaderTitle /></div>
 
         {/* Signin form md breakpoint  */}
         <div className="hidden md:flex absolute top-24 right-[10%] rounded-xl mt-[5%] shadow-md p-4 center-content w-[30%]  bg-white">
@@ -91,8 +91,8 @@ function Header() {
 
           {/* Logo */}
           <p className="font-bold text-light-yellow text-lg">
-            Phema<span className="text-dark-maroon">-</span>
-            <span className="text-dark-green">Agri</span>
+            Medora<span className="text-dark-maroon">-</span>
+            <span className="text-dark-green">Health</span>
           </p>
 
           <button
@@ -127,7 +127,7 @@ function Header() {
             </li>
             <li className="flex items-center">
               <a href="#" className="text-dark-green hover:scale-110 transform hover:ease-in-out duration-500">
-                Market place
+                Partners
               </a>
             </li>
           </ul>

@@ -1,20 +1,27 @@
-import { useState } from "react";
-import { HiBell, HiLogout } from "react-icons/hi";
-import { FaIndustry, FaMoneyBill, FaUser } from "react-icons/fa";
-import { HiChartSquareBar } from "react-icons/hi";
-import { FaTachometerAlt } from "react-icons/fa";
-import {
-  lineChartOptions,
-  lineChartData,
-  scatterChartData,
-  scatterChartOptions,
-} from "../shared/DummyData";
-import { Line, Scatter } from "react-chartjs-2";
+import { HiBell } from "react-icons/hi";
+import { useState, useEffect } from "react";
+import { HiLogout } from "react-icons/hi";
 import ChartCard from "../components/ChartCard";
+import { FaUser, FaTachometerAlt, FaCog, FaLeaf } from "react-icons/fa";
+import RecordPatientForm from "../components/RecordPatientForm";
+import {
+  barChartData,
+  barChartOptions,
+  groupedBarOptions,
+  groupedBarData,
+} from "../shared/DummyData";
+
+import { Bar } from "react-chartjs-2";
 import DataCard from "../components/DataCard";
 
-function Investor() {
-  const [user, setUser] = useState("User");
+
+function Portal() {
+  const [user, _] = useState("User");
+  const [selected, setSelected] = useState(2);
+
+  const handleSelect = (e) => {
+    setSelected(e.selected);
+  };
 
   return (
     <div>
@@ -23,7 +30,7 @@ function Investor() {
         className="
         w-full
         flex
-        justify-between 
+        justify-between
         items-center
         p-4
         bg-gray-100 
@@ -34,26 +41,32 @@ function Investor() {
       >
         {/* Logo */}
         <p className="font-bold text-light-yellow text-lg">
-          Phema<span className="text-dark-maroon">-</span>
-          <span className="text-dark-green">Agri</span>
+          Medora<span className="text-dark-maroon">-</span>
+          <span className="text-dark-green">Health</span>
         </p>
 
         <div className="flex space-x-3 items-center">
           {/* Avatar */}
-          <div className="w-8 h-8 rounded-full flex center-content bg-dark-maroon">
-            <p className="text-gray-100 text-lg font-semibold capitalize">
-              {user[0]}
-            </p>
+          <div>
+            <span
+              onClick={() => {}}
+              className="w-8 h-8 rounded-full flex center-content bg-dark-maroon"
+            >
+              <a
+                href="#"
+                className="text-gray-100 text-lg font-semibold capitalize"
+              >
+                {user[0]}
+              </a>
+            </span>
           </div>
-          {/* Welcome user */}
-          <p className="text-base md:flex hidden text-darker-green">
-            Welcome back!
-          </p>
+
+          {/* User email */}
+          <p className="text-base md:flex hidden text-darker-green">Welcome back!</p>
           {/* Notification */}
           <button>
             <HiBell className="w-6 h-6 text-dark-green" />
           </button>
-
           {/* Logout */}
           <a
             href="/"
@@ -69,26 +82,24 @@ function Investor() {
       <div className=" md:h-screen flex justify-between items-start w-full h-full bg-gray-100">
         {/* Menu Strip */}
         <div className="  md:w-[15%] md:px-4 md:max-h-screeen w-[12%] h-screen bg-dark-green space-y-8 px-2  py-4 flex-col justify-evenly items-center">
-        <p className="hidden md:flex md:pt-4 text-gray-100 font-bold">Investor View</p>
+          <p className="hidden md:flex md:pt-4 text-gray-100 font-bold">
+            Portal View
+          </p>
           <button className="md:flex md:space-x-3 items-center">
             <FaUser className="w-6 h-6 text-gray-100" />
-            <p className="hidden md:flex text-gray-100">My Account</p>
+            <p className="hidden md:flex text-gray-100"> My Account</p>
           </button>
           <button className="md:flex md:space-x-3 items-center">
             <FaTachometerAlt className="w-6 h-6 text-light-yellow" />
             <p className="hidden md:flex text-light-yellow">Dashboard</p>
           </button>
           <button className="md:flex md:space-x-3 items-center">
-            <HiChartSquareBar className="w-6 h-6 text-gray-100" />
-            <p className="hidden md:flex text-gray-100">Market trends</p>
+            <FaCog className="w-6 h-6 text-gray-100" />
+            <p className="hidden md:flex text-gray-100">Settings</p>
           </button>
           <button className="md:flex md:space-x-3 items-center">
-            <FaMoneyBill className="w-6 h-6 text-gray-100" />
-            <p className="hidden md:flex text-gray-100">Market Segments</p>
-          </button>
-          <button className="md:flex  md:space-x-3 items-center">
-            <FaIndustry className="w-6 h-6 text-gray-100" />
-            <p className="hidden md:flex text-gray-100">Establishments</p>
+            <FaLeaf className="w-6 h-6 text-gray-100" />
+            <p className="hidden md:flex text-gray-100">Loans</p>
           </button>
         </div>
 
@@ -100,8 +111,8 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={6800000}
-                  description={"Total Shares Owned"}
+                  cost={234}
+                  description={"Monthly expenditure on farm inputs"}
                   delta={70}
                   state={true}
                 />
@@ -111,8 +122,8 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={137440}
-                  description={"Money Lent Out"}
+                  cost={13700}
+                  description={"Weekly income from produce"}
                   delta={35}
                   state={true}
                 />
@@ -122,9 +133,9 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={780000}
-                  description={"Return on Investment"}
-                  delta={19}
+                  cost={750}
+                  description={"Interest Accrude last month"}
+                  delta={9}
                   state={true}
                 />
               )}
@@ -133,8 +144,8 @@ function Investor() {
             <ChartCard
               renderItem={() => (
                 <DataCard
-                  cost={90000}
-                  description={"Annual rate of Business growth"}
+                  cost={4500}
+                  description={"Cost of Livestock Immunization"}
                   delta={25}
                   state={false}
                 />
@@ -147,7 +158,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={234}
-                  description={"Total Shares Owned"}
+                  description={"Monthly expenditure on farm inputs"}
                   styling={"h-[20%]"}
                   delta={70}
                   state={true}
@@ -159,7 +170,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={13700}
-                  description={"Money Lent Out"}
+                  description={"Weekly income of produce"}
                   delta={35}
                   state={true}
                 />
@@ -170,7 +181,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={750}
-                  description={"Return on Investment"}
+                  description={"Interest Accrude last month"}
                   delta={9}
                   state={true}
                 />
@@ -181,7 +192,7 @@ function Investor() {
               renderItem={() => (
                 <DataCard
                   cost={4500}
-                  description={"Annual rate of Business growth"}
+                  description={"Cost of Livestock Immunization"}
                   delta={25}
                   state={false}
                 />
@@ -189,49 +200,55 @@ function Investor() {
             />
           </div>
 
-          {/* Line & scatter Charts md break point */}
+          {/* Bar & grouped Bar Chart md bkp */}
           <div className="hidden md:flex md:h-auto space-x-6">
             <ChartCard
               renderItem={() => (
-                <Line data={lineChartData} options={lineChartOptions} />
+                <Bar data={barChartData} options={barChartOptions} />
               )}
             />
+
             <ChartCard
               renderItem={() => (
-                <Scatter
+                <Bar
+                  data={groupedBarData}
                   height={160}
-                  data={scatterChartData}
-                  options={scatterChartOptions}
+                  options={groupedBarOptions}
                 />
               )}
             />
           </div>
 
-          {/* Line & Scatter Charts for sm break point  */}
+          {/* Bar & grouped Bar Chart sm bkp */}
+
           <div className={"md:hidden"}>
             <ChartCard
               renderItem={() => (
-                <Line
+                <Bar
+                  data={barChartData}
                   height={67}
-                  data={lineChartData}
-                  options={lineChartOptions}
+                  options={barChartOptions}
                 />
               )}
             />
+
             <ChartCard
               renderItem={() => (
-                <Scatter
+                <Bar
+                  data={groupedBarData}
                   height={110}
-                  data={scatterChartData}
-                  options={scatterChartOptions}
+                  options={groupedBarOptions}
                 />
               )}
             />
           </div>
         </div>
       </div>
+
+      {/* Modal Form */}
+      <RecordPatientForm />
     </div>
   );
 }
 
-export default Investor;
+export default Portal;
