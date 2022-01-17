@@ -13,3 +13,7 @@ Medora app is an application that focuses on records management of patients
 # Build for Producion
 
 ``` yarn run build ``` or ``` npm run build ```
+
+# Database
+
+The app uses firebase Realtime database; the following is the link ```https://phemagri-899c0-default-rtdb.firebaseio.com/```
