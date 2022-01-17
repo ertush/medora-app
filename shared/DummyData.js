@@ -1,5 +1,5 @@
 const barChartData = {
-    labels: ['Carrots', 'Beans', 'Maize', 'Millet', 'Wheat', 'tomatoes'],
+    labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
     datasets: [
       {
         label: '# of bags',
@@ -48,7 +48,7 @@ const barChartData = {
   
 
   const pieChartData = {
-    labels: ['Carrots', 'Beans', 'Maize', 'Millet', 'Wheat', 'tomatoes'],
+    labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
     datasets: [
       {
         label: '# of Acres',
